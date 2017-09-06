@@ -57,6 +57,7 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		public function init() {
 			require_once SWITCH_TO_ASTRA_DIR . 'vendor/class-wp-async-request.php';
 			require_once SWITCH_TO_ASTRA_DIR . 'vendor/class-wp-background-process.php';
+			require_once SWITCH_TO_ASTRA_DIR . 'classes/class-logger.php';
 			require_once SWITCH_TO_ASTRA_DIR . 'classes/class-switch-to-astra-process.php';
 
 			$this->process_all    = new Switch_To_Astra_Process();

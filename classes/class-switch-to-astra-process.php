@@ -14,6 +14,8 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 	 */
 	class Switch_To_Astra_Process extends WP_Background_Process {
 
+		use WP_Switch_To_Astra_Logger;
+		
 		/**
 		 * @var string
 		 */
@@ -43,6 +45,11 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 				update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 			}
+
+			$message = $this->get_message( $id );
+
+			$this->really_long_running_task();
+			$this->log( $message );
 
 			return false;
 		}
