@@ -41,12 +41,10 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 * Switch_To_Astra constructor.
 		 */
 		public function __construct() {
-			$flag = get_option( 'switch-to-astra-flag', 'true' );
-			if ( 'true' === $flag ) {
-				add_action( 'plugins_loaded', array( $this, 'init' ) );
-				add_action( 'admin_init',     array( $this, 'process_handler' ) );
-				add_action( 'admin_notices',  array( $this, 'add_admin_notice' ) );
-			}
+
+			add_action( 'plugins_loaded', array( $this, 'init' ) );
+			add_action( 'admin_init',     array( $this, 'process_handler' ) );
+			add_action( 'admin_notices',  array( $this, 'add_admin_notice' ) );
 			register_deactivation_hook( SWITCH_TO_ASTRA_FILE, array( $this, 'deactivate' ) );
 
 		}
@@ -78,6 +76,9 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 
 			if ( 'to-astra' === $_GET['switch'] ) {
 				$this->handle_all();
+
+				wp_redirect( remove_query_arg( array( 'switch', '_wpnonce' ) ) );
+				exit();
 			}
 		}
 
@@ -147,11 +148,13 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 * @return void
 		 */
 		public function add_admin_notice() { 
-			if ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) {
+			
+			$flag = get_option( 'switch-to-astra-flag', 'true' );
+			if ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) {
 				?>
 				<div id="switch-to-astra-notice" class="updated">
 					<p><strong><?php _e( 'Astra data update', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'We need to update your page/post meta option to the make fully compatibile with Astra theme.', 'switch-to-astra' ); ?></p>
-					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( admin_url( '?switch=to-astra'), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Run the updater', 'switch-to-astra' ); ?></a></p>
+					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Run the updater', 'switch-to-astra' ); ?></a></p>
 				</div>
 				<script type="text/javascript">
 					document.querySelector( '.switch-to-astra-update-now' ).addEventListener( 'click', function ( event ) {
