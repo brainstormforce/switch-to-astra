@@ -15,7 +15,7 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 	class Switch_To_Astra_Process extends WP_Background_Process {
 
 		use WP_Switch_To_Astra_Logger;
-		
+
 		/**
 		 * @var string
 		 */
@@ -42,8 +42,8 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 			if ( $fl_enabled || 'builder' === $elementor || true === $vc || 'true' === $vc ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
-				update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+				update_post_meta( $id, 'site-content-layout', 'page-builder' );
 			}
 
 			$message = $this->get_message( $id );
