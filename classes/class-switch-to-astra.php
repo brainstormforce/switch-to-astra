@@ -207,9 +207,10 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 
 			$flag = get_option( 'switch-to-astra-flag', 'true' );
 			if ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) {
+
 				?>
 				<div id="switch-to-astra-notice" class="updated">
-					<p><strong><?php _e( 'Astra data update', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'We need to update your page/post meta option to the make fully compatibile with Astra theme.', 'switch-to-astra' ); ?></p>
+					<p><strong><?php _e( 'Switch to Astra', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Set page layout to full width and disable page title for all the pages created using Beaver Builder or Visual Composer or Elementor.', 'switch-to-astra' ); ?></p>
 					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Run the updater', 'switch-to-astra' ); ?></a></p>
 				</div>
 				<script type="text/javascript">

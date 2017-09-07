@@ -19,13 +19,13 @@ Switch to Astra plugin is to make your page/post full width which is designed wi
 == Installation ==
 
 1. Install the Switch to Astra plugin either via the WordPress plugin directory, or by uploading the files to your server at wp-content/plugins.
-2. After activating, you can make your page/post ( designed with Page builder ) full width by click on "Run the Updater" button in Astra data update notice.
+2. After activating, you can make your page/post ( designed with Page builder ) full width by click on "Run the Updater" button in Switch to Astra notice.
 
 == Frequently Asked Questions ==
 
 = Where to find the Run the updater button? =
 
-After Activation of plugin you will get a notice with Astra data update, in that notice you will find that button. Screenshot: http://screenshots.sharkz.in/dinesh/2017/09/2017-09-07_11-15-03.png
+After Activation of plugin you will get a notice with Switch to Astra, in that notice you will find that button. Screenshot: http://screenshots.sharkz.in/dinesh/2017/09/2017-09-07_11-15-03.png
 
 = Is this notice will appeare all time? =
 
