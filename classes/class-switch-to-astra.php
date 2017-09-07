@@ -44,31 +44,11 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'after_setup_theme', array( $this, 'add_admin_notices' ) );
+			add_action( 'admin_notices',  array( $this, 'add_admin_notice' ) );
 			add_action( 'plugins_loaded', array( $this, 'init' ) );
 			add_action( 'admin_init',     array( $this, 'process_handler' ) );
 			register_deactivation_hook( SWITCH_TO_ASTRA_FILE, array( $this, 'deactivate' ) );
 
-		}
-
-		/**
-		 * Admin Notice.
-		 *
-		 * @since 1.0.0
-		 */
-		public function add_admin_notices() {
-
-			if ( ! defined( 'ASTRA_THEME_VERSION' ) ) {
-				$astra_theme = wp_get_theme( 'astra' );
-
-				if ( $astra_theme->exists() ) {
-					add_action( 'admin_notices',  array( $this, 'activate_theme' ) );
-				} else {
-					add_action( 'admin_notices',  array( $this, 'install_theme' ) );
-				}
-				return;
-			}
-			add_action( 'admin_notices',  array( $this, 'add_admin_notice' ) );
 		}
 
 		/**
@@ -162,40 +142,6 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 */
 		public function deactivate() {
 			delete_option( 'switch-to-astra-flag' );
-		}
-
-		/**
-		 * Activate theme notice.
-		 *
-		 * @return void
-		 */
-		public function activate_theme() {
-
-			if ( current_user_can( 'manage_options' ) ) {
-				$activate_link = '<a href="' . esc_url( wp_nonce_url( admin_url( 'themes.php?action=activate&stylesheet=astra' ), 'switch-theme_astra' ) ) . '" >' . __( 'Click Here to Activate', 'switch-to-astra' ) . '</a>';
-			}
-			?>
-			<div id="switch-to-astra-activate-theme-notice" class="notice ast-active-notice notice-error">
-				<p><?php _e( '<strong>"Switch to Astra"</strong> plugin required <strong>"Astra"</strong> theme to be activated.', 'switch-to-astra' ); ?> <?php echo $activate_link; ?></p>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Install theme notice.
-		 *
-		 * @return void
-		 */
-		public function install_theme() {
-
-			if ( current_user_can( 'manage_options' ) ) {
-				$activate_link = '<a href="' . esc_url( admin_url( 'theme-install.php?theme=astra' ) ) . '" >' . __( 'Click Here to Install & Activate', 'switch-to-astra' ) . '</a>';
-			}
-			?>
-			<div id="switch-to-astra-activate-theme-notice" class="notice ast-active-notice notice-error">
-				<p><?php _e( '<strong>"Switch to Astra"</strong> plugin required <strong>"Astra"</strong> theme to be installed & activated.', 'switch-to-astra' ); ?> <?php echo $activate_link; ?></p>
-			</div>
-			<?php
 		}
 
 		/**
