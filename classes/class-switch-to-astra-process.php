@@ -64,8 +64,7 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 		 */
 		protected function complete() {
 			parent::complete();
-
-			// Show notice to user or perform some other arbitrary task...
+			update_option( 'switch-to-astra-flag', 'updated' );
 		}
 
 	}

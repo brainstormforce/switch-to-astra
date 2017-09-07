@@ -44,9 +44,11 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'admin_notices',  array( $this, 'add_admin_notice' ) );
-			add_action( 'plugins_loaded', array( $this, 'init' ) );
-			add_action( 'admin_init',     array( $this, 'process_handler' ) );
+			add_action( 'admin_notices',                   array( $this, 'add_admin_notice' ) );
+			add_action( 'admin_enqueue_scripts',           array( $this, 'admin_scripts' ) );
+			add_action( 'wp_ajax_switch_to_astra_updated', array( $this, 'switch_to_astra_updated_callback' ) );
+			add_action( 'plugins_loaded',                  array( $this, 'init' ) );
+			add_action( 'admin_init',                      array( $this, 'process_handler' ) );
 			register_deactivation_hook( SWITCH_TO_ASTRA_FILE, array( $this, 'deactivate' ) );
 
 		}
@@ -94,7 +96,7 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 				$this->process_all->push_to_queue( $id );
 			}
 
-			update_option( 'switch-to-astra-flag', 'false' );
+			update_option( 'switch-to-astra-flag', 'updating' );
 			$this->process_all->save()->dispatch();
 		}
 
@@ -152,23 +154,51 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		public function add_admin_notice() {
 
 			$flag = get_option( 'switch-to-astra-flag', 'true' );
-			if ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) {
+			if ( 'updated' == $flag ) { ?>
 
-				?>
+				<div id="switch-to-astra-notice" class="switch-to-astra-updated updated notice notice-success is-dismissible">
+					<p><strong><?php _e( 'Updated', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Updated page layout to full width and disabled page title for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
+				</div>
+
+				<?php
+			} elseif ( 'updating' == $flag ) { ?>
+
+				<div id="switch-to-astra-notice" class="switch-to-astra-updating updated notice">
+					<p><strong><?php _e( 'Updating', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Migrating page layout to full width and page title meta for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
+				</div>
+
+				<?php
+			} elseif ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) { ?>
+
 				<div id="switch-to-astra-notice" class="updated">
-					<p><strong><?php _e( 'Switch to Astra', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Set page layout to full width and disable page title for all the pages created using Beaver Builder or Visual Composer or Elementor.', 'switch-to-astra' ); ?></p>
+					<p><strong><?php _e( 'Switch to Astra', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Set page layout to full width and disable page title for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
 					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Run the updater', 'switch-to-astra' ); ?></a></p>
 				</div>
-				<script type="text/javascript">
-					document.querySelector( '.switch-to-astra-update-now' ).addEventListener( 'click', function ( event ) {
-						var confirm = window.confirm( '<?php echo esc_js( __( 'Are you sure you wish to run the updater now?', 'switch-to-astra' ) ); ?>' ); // jshint ignore:line
-						if( ! confirm ) {
-							event.preventDefault();
-						}
-					});
-				</script>
+
 				<?php
 			}
+		}
+
+		/**
+		 * Customizer Preview
+		 */
+		public function admin_scripts() {
+			wp_enqueue_script( 'switch-to-astra', SWITCH_TO_ASTRA_URI . 'assets/js/switch-to-astra.js', array( 'jquery' ), null, true );
+
+			/**
+			 * Registered localize vars
+			 */
+			$localize_vars = array(
+				'confirm_message' => esc_js( __( 'Are you sure you wish to run the updater now?', 'switch-to-astra' ) ),
+			);
+			wp_localize_script( 'switch-to-astra', 'switchToAstra', $localize_vars );
+		}
+
+		/**
+		 * Customizer Preview
+		 */
+		public function switch_to_astra_updated_callback() {
+			update_option( 'switch-to-astra-flag', 'false' );
 		}
 
 	}
