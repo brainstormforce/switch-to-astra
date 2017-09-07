@@ -47,12 +47,6 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 				update_post_meta( $id, 'site-content-layout', 'page-builder' );
 			}
-
-			$message = $this->get_message( $id );
-
-			$this->really_long_running_task();
-			$this->log( $message );
-
 			return false;
 		}
 
