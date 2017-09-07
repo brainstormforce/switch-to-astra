@@ -6,16 +6,18 @@
  */
 
 if ( ! class_exists( 'Switch_To_Astra' ) ) {
-	
+
 	/**
-	 * Switch_To_Astra_Process initial
+	 * Switch_To_Astra initial
 	 *
 	 * @since 1.0.0
 	 */
 	class Switch_To_Astra {
 
 		/**
-		 * @var WP_Switch_To_Astra_Process
+		 * Switch_To_Astra_Process instance
+		 *
+		 * @var Switch_To_Astra_Process
 		 */
 		protected $process_all;
 
@@ -49,15 +51,19 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 
 		}
 
+		/**
+		 * Admin Notice.
+		 *
+		 * @since 1.0.0
+		 */
 		public function add_admin_notices() {
 
 			if ( ! defined( 'ASTRA_THEME_VERSION' ) ) {
 				$astra_theme = wp_get_theme( 'astra' );
-				
+
 				if ( $astra_theme->exists() ) {
 					add_action( 'admin_notices',  array( $this, 'activate_theme' ) );
-				}
-				else {
+				} else {
 					add_action( 'admin_notices',  array( $this, 'install_theme' ) );
 				}
 				return;
@@ -81,12 +87,12 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 * Process handler
 		 */
 		public function process_handler() {
-			
+
 			if ( ! isset( $_GET['switch'] ) || ! isset( $_GET['_wpnonce'] ) ) {
 				return;
 			}
 
-			if ( ! wp_verify_nonce( $_GET['_wpnonce'], 'switch') ) {
+			if ( ! wp_verify_nonce( $_GET['_wpnonce'], 'switch' ) ) {
 				return;
 			}
 
@@ -163,10 +169,10 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 *
 		 * @return void
 		 */
-		public function activate_theme() { 
-			
+		public function activate_theme() {
+
 			if ( current_user_can( 'manage_options' ) ) {
-				$activate_link = '<a href="' . esc_url( wp_nonce_url( admin_url( 'themes.php?action=activate&stylesheet=astra' ), 'switch-theme_astra' ) ) .'" >' . __( 'Click Here to Activate', 'switch-to-astra' ) . '</a>';
+				$activate_link = '<a href="' . esc_url( wp_nonce_url( admin_url( 'themes.php?action=activate&stylesheet=astra' ), 'switch-theme_astra' ) ) . '" >' . __( 'Click Here to Activate', 'switch-to-astra' ) . '</a>';
 			}
 			?>
 			<div id="switch-to-astra-activate-theme-notice" class="notice ast-active-notice notice-error">
@@ -180,10 +186,10 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 *
 		 * @return void
 		 */
-		public function install_theme() { 
-			
+		public function install_theme() {
+
 			if ( current_user_can( 'manage_options' ) ) {
-				$activate_link = '<a href="' . esc_url( admin_url( 'theme-install.php?theme=astra' ) ) .'" >' . __( 'Click Here to Install & Activate', 'switch-to-astra' ) . '</a>';
+				$activate_link = '<a href="' . esc_url( admin_url( 'theme-install.php?theme=astra' ) ) . '" >' . __( 'Click Here to Install & Activate', 'switch-to-astra' ) . '</a>';
 			}
 			?>
 			<div id="switch-to-astra-activate-theme-notice" class="notice ast-active-notice notice-error">
@@ -197,8 +203,8 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 *
 		 * @return void
 		 */
-		public function add_admin_notice() { 
-			
+		public function add_admin_notice() {
+
 			$flag = get_option( 'switch-to-astra-flag', 'true' );
 			if ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) {
 				?>

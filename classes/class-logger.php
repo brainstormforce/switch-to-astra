@@ -1,5 +1,13 @@
 <?php
+/**
+ * Switch to Astra Logger
+ *
+ * @package Switch to Astra
+ */
 
+/**
+ * Switch to Astra Logger
+ */
 trait WP_Switch_To_Astra_Logger {
 
 	/**
@@ -14,7 +22,7 @@ trait WP_Switch_To_Astra_Logger {
 	/**
 	 * Log
 	 *
-	 * @param string $message
+	 * @param string $message Log Message.
 	 */
 	public function log( $message ) {
 		error_log( $message );
@@ -23,13 +31,13 @@ trait WP_Switch_To_Astra_Logger {
 	/**
 	 * Get lorem
 	 *
-	 * @param string $name
+	 * @param string $id Post Id.
 	 *
 	 * @return string
 	 */
 	protected function get_message( $id ) {
 
-		$message = 'Post Updated : '. $id;
+		$message = 'Post Updated : ' . $id;
 		return $message;
 	}
 

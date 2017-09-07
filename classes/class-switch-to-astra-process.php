@@ -6,7 +6,7 @@
  */
 
 if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
-	
+
 	/**
 	 * Switch_To_Astra_Process
 	 *
@@ -17,6 +17,8 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 		use WP_Switch_To_Astra_Logger;
 
 		/**
+		 * Action.
+		 *
 		 * @var string
 		 */
 		protected $action = 'switch_to_astra_process';
@@ -29,12 +31,12 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 		 * in the next pass through. Or, return false to remove the
 		 * item from the queue.
 		 *
-		 * @param mixed $id Queue item to iterate over
+		 * @param int $id Queue item to iterate over.
 		 *
-		 * @return mixed
+		 * @return boolean
 		 */
 		protected function task( $id ) {
-			
+
 			$elementor  = get_post_meta( $id, '_elementor_edit_mode', true );
 			$vc         = get_post_meta( $id, '_wpb_vc_js_status', true );
 			$fl_enabled = get_post_meta( $id, '_fl_builder_enabled', true );
