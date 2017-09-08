@@ -2,7 +2,7 @@
 /**
  * Switch to Astra Process
  *
- * @package Switch to Astra
+ * @package Switch_to_Astra
  */
 
 if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {

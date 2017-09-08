@@ -2,7 +2,7 @@
 /**
  * Switch to Astra Logger
  *
- * @package Switch to Astra
+ * @package Switch_to_Astra
  */
 
 /**

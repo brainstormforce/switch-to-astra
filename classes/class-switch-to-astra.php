@@ -2,7 +2,7 @@
 /**
  * Switch to Astra Initial
  *
- * @package Switch to Astra
+ * @package Switch_to_Astra
  */
 
 if ( ! class_exists( 'Switch_To_Astra' ) ) {
@@ -156,23 +156,39 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 			$flag = get_option( 'switch-to-astra-flag', 'true' );
 			if ( 'updated' == $flag ) { ?>
 
-				<div id="switch-to-astra-notice" class="switch-to-astra-updated updated notice notice-success is-dismissible">
-					<p><strong><?php _e( 'Updated', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Updated page layout to full width and disabled page title for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
+				<div id="switch-to-astra-notice" class="switch-to-astra-updated updated notice notice-success">
+					<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span><span class="switch-top-astra-dismiss">Dismiss</span></button>
+					<p><?php _e( 'Your site is now Page Builder Compatible.', 'switch-to-astra' ); ?></p>
 				</div>
 
 				<?php
 			} elseif ( 'updating' == $flag ) { ?>
 
 				<div id="switch-to-astra-notice" class="switch-to-astra-updating updated notice">
-					<p><strong><?php _e( 'Updating', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Migrating page layout to full width and page title meta for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
+					<p>
+					<?php _e( 
+							sprintf(  /*Translators - Opening and closing Strong tags*/
+								'%1s Switch to astra %2s is working in the background. We will inform you when the update is complete.',
+								'<strong>',
+								'</strong>' 
+							), 
+						'switch-to-astra'); ?>
+					</p>
 				</div>
 
 				<?php
 			} elseif ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) { ?>
 
 				<div id="switch-to-astra-notice" class="updated">
-					<p><strong><?php _e( 'Switch to Astra', 'switch-to-astra' ); ?></strong> &#8211; <?php _e( 'Set page layout to full width and disable page title for all the pages created using <i>Beaver Builder</i> or <i>Visual Composer</i> or <i>Elementor</i>.', 'switch-to-astra' ); ?></p>
-					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Run the updater', 'switch-to-astra' ); ?></a></p>
+					<p><?php _e( 
+							sprintf(  /*Translators - Opening and closing Strong tags*/
+								'Make My Site Page Builder Compatible.',
+								'<strong>',
+								'</strong>' 
+							), 
+						'switch-to-astra'); ?>
+					</p>
+					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Go Full Width', 'switch-to-astra' ); ?></a></p>
 				</div>
 
 				<?php
@@ -183,7 +199,8 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 		 * Customizer Preview
 		 */
 		public function admin_scripts() {
-			wp_enqueue_script( 'switch-to-astra', SWITCH_TO_ASTRA_URI . 'assets/js/switch-to-astra.js', array( 'jquery' ), null, true );
+			wp_enqueue_script( 'switch-to-astra', SWITCH_TO_ASTRA_URI . 'assets/switch-to-astra.js', array( 'jquery' ), SWITCH_TO_ASTRA_VER, true );
+			wp_enqueue_style( 'switch-to-astra', SWITCH_TO_ASTRA_URI . 'assets/switch-to-astra.css', array(), SWITCH_TO_ASTRA_VER );
 
 			/**
 			 * Registered localize vars
