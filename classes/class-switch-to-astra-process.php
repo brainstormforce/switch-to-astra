@@ -45,6 +45,7 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
+				update_post_meta( $id, 'ast-featured-img', 'disabled' );
 				
 				if ( true === $vc || 'true' === $vc ) {
 					update_post_meta( $id, 'site-content-layout', 'plain-container' );
