@@ -1,5 +1,5 @@
 === Switch To Astra ===
-Contributors: brainstormforce, dineshc
+Contributors: brainstormforce
 Tags: astra, astra plugin, switch to astra
 Tested up to: 4.8.1
 Stable tag: trunk
