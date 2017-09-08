@@ -157,8 +157,8 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 			if ( 'updated' == $flag ) { ?>
 
 				<div id="switch-to-astra-notice" class="switch-to-astra-updated updated notice notice-success">
+					<p><?php _e( 'Done! Your Page Builder designs should be full with now. You can deactivate and delete this plugin.', 'switch-to-astra' ); ?></p>
 					<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span><span class="switch-top-astra-dismiss">Dismiss</span></button>
-					<p><?php _e( 'Your site is now Page Builder Compatible.', 'switch-to-astra' ); ?></p>
 				</div>
 
 				<?php
@@ -167,11 +167,7 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 				<div id="switch-to-astra-notice" class="switch-to-astra-updating updated notice">
 					<p>
 					<?php _e( 
-							sprintf(  /*Translators - Opening and closing Strong tags*/
-								'%1s Switch to astra %2s is working in the background. We will inform you when the update is complete.',
-								'<strong>',
-								'</strong>' 
-							), 
+						'Your Page Builder designs are being updated in background. We will inform you when the update is complete.',
 						'switch-to-astra'); ?>
 					</p>
 				</div>
@@ -181,14 +177,10 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 
 				<div id="switch-to-astra-notice" class="updated">
 					<p><?php _e( 
-							sprintf(  /*Translators - Opening and closing Strong tags*/
-								'Make My Site Page Builder Compatible.',
-								'<strong>',
-								'</strong>' 
-							), 
+						'Want to make your Page Builder designs go full width on Astra theme? Learn what this means here. And please take a backup of your site before proceeding.', 
 						'switch-to-astra'); ?>
 					</p>
-					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Go Full Width', 'switch-to-astra' ); ?></a></p>
+					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Let\'s Go Full Width!', 'switch-to-astra' ); ?></a></p>
 				</div>
 
 				<?php
