@@ -15,7 +15,7 @@
 		}
 	});
 
-	jQuery(document).on('click', '.switch-to-astra-updated', function(event) {
+	jQuery(document).on('click', '#switch-to-astra-notice .notice-dismiss', function(event) {
 
 		jQuery.ajax({
 			url: ajaxurl,
