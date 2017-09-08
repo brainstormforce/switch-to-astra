@@ -9,6 +9,8 @@ This plugin essentially helps you make your existing website compatible with Pag
 
 == Description ==
 
+<h2>Go Full Width After Switching to Astra</h2>
+
 This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme. Here is how this plugin works - 
 
 1. Install & Activate the plugin
