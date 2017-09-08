@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Switch to Astra
  * Plugin URI: https://wpastra.com/
- * Description: Plugin Desctiption.
+ * Description: This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme.
  * Version: 1.0.0
  * Author: Brainstorm Force
- * Author URI: http://www.brainstormforce.com
+ * Author URI: https://www.brainstormforce.com
  * Text Domain: switch-to-astra
  *
- * @package Switch to Astra
+ * @package Switch_to_Astra
  */
 
 /**

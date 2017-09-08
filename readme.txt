@@ -5,7 +5,7 @@ Tested up to: 4.8.1
 Stable tag: trunk
 Requires at least: 4.4
 
-Auto update Page/Post meta to make any page builder post full width.
+This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme.
 
 == Description ==
 
