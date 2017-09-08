@@ -114,7 +114,9 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 					'public' => true,
 				)
 			);
+
 			unset( $all_post_type['attachment'] );
+			unset( $all_post_type['post'] );
 
 			// wp_query array.
 			$query = array(
