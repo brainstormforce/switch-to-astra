@@ -24,7 +24,7 @@
 				action: 'switch_to_astra_updated',
 			},
 			success: function(data) {
-				console.log('Switch to Astra updated all related page and posts.');
+				$( '#switch-to-astra-notice' ).slideUp('400');
 			}
 		});
 	});

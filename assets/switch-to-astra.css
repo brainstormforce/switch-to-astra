@@ -1,0 +1,25 @@
+#switch-to-astra-notice .notice-dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 15px 10px 21px;
+}
+
+#switch-to-astra-notice {
+    position: relative;
+}
+
+#switch-to-astra-notice .notice-dismiss:before {
+    margin: 0;
+    display: inline-block;
+}
+
+.switch-top-astra-dismiss {
+    vertical-align: top;
+    line-height: 1.6;
+}
