@@ -1,8 +1,8 @@
 # Switch To Astra #
 **Contributors:** brainstormforce  
 **Tags:** astra, astra plugin, switch to astra  
-**Tested up to:** 4.8.1  
-**Stable tag:** trunk  
+**Tested up to:** 4.8.2  
+**Stable tag:** 1.0.1  
 **Requires at least:** 4.4  
 
 This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme.
@@ -40,6 +40,8 @@ NOTES:
 2. After activating, you can make your page/post ( designed with Page builder ) full width by click on "Run the Updater" button in Switch to Astra notice.
 
 ## Changelog ##
+### 1.0.1 ###
+* Add support for the Cornerstone page builder.
 
 ### 1.0.0 ###
 * Initial release.
