@@ -164,23 +164,32 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 				</div>
 
 				<?php
-			} elseif ( 'updating' == $flag ) { ?>
+			} elseif ( 'updating' == $flag ) {
+			?>
 
 				<div id="switch-to-astra-notice" class="switch-to-astra-updating updated notice">
 					<p>
-					<?php _e( 
+					<?php
+					_e(
 						'Your Page Builder designs are being updated in background. We will inform you when the update is complete.',
-						'switch-to-astra'); ?>
+						'switch-to-astra'
+					);
+						?>
 					</p>
 				</div>
 
 				<?php
-			} elseif ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) { ?>
+			} elseif ( 'true' === $flag && ( ! isset( $_GET['switch'] ) || 'to-astra' != $_GET['switch'] ) ) {
+			?>
 
 				<div id="switch-to-astra-notice" class="updated">
-					<p><?php _e( 
-						'Want to make your Page Builder designs go full width on Astra theme? Learn what this means here. And please take a backup of your site before proceeding.', 
-						'switch-to-astra'); ?>
+					<p>
+					<?php
+					_e(
+						'Want to make your Page Builder designs go full width on Astra theme? Learn what this means here. And please take a backup of your site before proceeding.',
+						'switch-to-astra'
+					);
+						?>
 					</p>
 					<p class="submit"><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'switch', 'to-astra' ), 'switch' ) ); ?>" class="switch-to-astra-update-now button-primary"><?php _e( 'Let\'s Go Full Width!', 'switch-to-astra' ); ?></a></p>
 				</div>
