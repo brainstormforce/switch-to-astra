@@ -40,6 +40,8 @@ NOTES:
 2. After activating, you can make your page/post ( designed with Page builder ) full width by click on "Run the Updater" button in Switch to Astra notice.
 
 ## Changelog ##
+### 1.0.1 ###
+* Add support for the Cornerstone page builder.
 
 ### 1.0.0 ###
 * Initial release.

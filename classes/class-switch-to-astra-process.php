@@ -40,8 +40,10 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 			$elementor  = get_post_meta( $id, '_elementor_edit_mode', true );
 			$vc         = get_post_meta( $id, '_wpb_vc_js_status', true );
 			$fl_enabled = get_post_meta( $id, '_fl_builder_enabled', true );
+			$cornerstone = get_post_meta( $id, '_cornerstone_settings', true );
 
-			if ( $fl_enabled || 'builder' === $elementor || true === $vc || 'true' === $vc ) {
+
+			if ( $fl_enabled || 'builder' === $elementor || true === $vc || 'true' === $vc || $cornerstone ) {
 				update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 				update_post_meta( $id, 'site-post-title', 'disabled' );
 				update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
@@ -52,6 +54,7 @@ if ( ! class_exists( 'Switch_To_Astra_Process' ) ) {
 				} else {
 					update_post_meta( $id, 'site-content-layout', 'page-builder' );
 				}
+
 			}
 
 			return false;
