@@ -2,7 +2,7 @@
 **Contributors:** brainstormforce  
 **Tags:** astra, astra plugin, switch to astra  
 **Tested up to:** 4.8.1  
-**Stable tag:** trunk  
+**Stable tag:** 1.0.1  
 **Requires at least:** 4.4  
 
 This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme.
