@@ -159,7 +159,7 @@ if ( ! class_exists( 'Switch_To_Astra' ) ) {
 			if ( 'updated' == $flag ) { ?>
 
 				<div id="switch-to-astra-notice" class="switch-to-astra-updated updated notice notice-success">
-					<p><?php _e( 'Done! Your Page Builder designs should be full with now. You can deactivate and delete this plugin.', 'switch-to-astra' ); ?></p>
+					<p><?php _e( 'Done! Your Page Builder designs should be full width now. You can deactivate and delete this plugin.', 'switch-to-astra' ); ?></p>
 					<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span><span class="switch-top-astra-dismiss">Dismiss</span></button>
 				</div>
 
