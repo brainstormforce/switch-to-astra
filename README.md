@@ -1,5 +1,5 @@
 # Switch To Astra #
-**Contributors:** brainstormforce  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)  
 **Tags:** astra, astra plugin, switch to astra  
 **Tested up to:** 5.1  
 **Stable tag:** 1.0.1  
@@ -9,30 +9,59 @@ This plugin essentially helps you make your existing website compatible with Pag
 
 ## Description ##
 
-<h2>Go Full Width After Switching to Astra</h2>
+- Did you just install Astra theme on your existing website? 
+- Do you have any layouts built with Page Builders that are no more Full Width after switching to Astra?
+- Wondering whether you need to manually make all these pages full width manually from Astra meta option? 
 
-This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme. Here is how this plugin works - 
+If the answer to questions above is yes, this plugin is for you. 
 
-1. Install & Activate the plugin
-1. Click on the Link: "Go Fullwidth"
-In a moment, the pages & posts where you've used the Page Builder will go fullwidth.
+Here is how it works –
 
-That’s about it. If you’re interested in understanding how this works, read along!
+- Install & Activate the plugin
+- Click on the Link: "Go Fullwidth"
+- In a moment, the pages & posts where you've used the Page Builder will go full width.
 
-Instead of making all pages and posts go full width, this plugin smartly detects <strong>only</strong> Pages / Posts that are made using Page Builders and only updates them automagically.
+We also have a detailed knowledgebase article that explains <a href="https://wpastra.com/docs/switch-to-astra?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=switch_to_astra">how you can switch to Astra</a> in a few easy steps.
 
-This is what happens when you click on "Let's Go Full Width"
+This is what this plugin automates:
 
-1. Layout will be set to "Full Width"
-1. Title will be disabled
-1. Sidebar will be set to "No Sidebar"
-1. Featured Image will be disabled
+1. Finds and shortlists all layouts that are created with Page Builder.
+2. The layout of all those pages is changed to "Full Width" from meta options.
+3. Title is be disabled
+4. Sidebar will be set to "No Sidebar"
+5. Featured Image will be disabled
 
-NOTES: 
+### WORTH CONSIDERING: ###
 
-1. This plugin is made just for the Astra Theme. It does not work for other themes.
-1. Supported Page Builders are: Beaver Builder, Elementor & Visual Composer.
-1. IMPORTANT: Please take a backup of your site before using this plugin.
+Need more control to select the pages you want to make full width? You can use the <a href="https://wordpress.org/plugins/astra-bulk-edit/">Astra Bulk Edit</a> plugin to do so.
+
+### IMPORTANT NOTES: ###
+
+- This plugin is made just for the Astra Theme. It does not work with other themes.
+- Supported Page Builders - Beaver Builder, Elementor & Visual Composer.
+- Please take a backup of your website before using this plugin.
+
+### WHY SWITCH TO ASTRA? ###
+
+Astra is the fastest customizable WordPress theme! It is powering over 300,000+ websites and is being loved by both beginners and experts.
+
+### ASTRA OFFERS - ###
+
+**Faster Performance** - Built with speed and performance in mind, Astra lets you built faster loading and better performing websites in minutes.
+
+**Compatibility with Page Builders** - Astra works great with all page builders. You can pick it as the best <a href="https://wpastra.com/theme-for-elementor/?utm_source=wp-repo&utm_medium=astra_desc&utm_campaign=switch_to_astra">theme for Elementor</a>, Beaver Builder, Divi, Brizy, etc. Astra works great with Gutenberg too!
+
+**Easy Customizations** - Astra offers all the settings within the customizer itself. This speeds up the process of designing a website with just a few clicks.
+
+**Deeper Integrations** - Astra’s integration with all WooCommerce plugins, LearnDash, LifterLMS, etc. lets you create better online stores and websites to offer online courses.
+
+**Ready-to-use complete website demos** - Astra along with the <a href="https://wordpress.org/plugins/astra-sites/">Astra Starter Sites</a> plugin gives you complete website demos built with Elementor, Beaver Builder, Brizy and Gutenberg. You can import, tweak and use them as your own.
+
+## Frequently Asked Questions ##
+
+### Will this affect the content on my website? ###
+
+The Switch to Astra plugin switches the theme on a website. Therefore, you might just lose the settings you’ve managed through your previous theme. The content added through page builders will remain.
 
 ## Installation ##
 
