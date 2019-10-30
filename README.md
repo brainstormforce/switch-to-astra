@@ -38,7 +38,7 @@ Need more control to select the pages you want to make full width? You can use t
 ### IMPORTANT NOTES: ###
 
 - This plugin is made just for the Astra Theme. It does not work with other themes.
-- Supported Page Builders - Beaver Builder, Elementor & Visual Composer.
+- Supported Page Builders - Beaver Builder, Elementor & WPBakery Page Builder.
 - Please take a backup of your website before using this plugin.
 
 ### WHY SWITCH TO ASTRA? ###
