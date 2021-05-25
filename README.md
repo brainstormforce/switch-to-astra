@@ -5,6 +5,8 @@
 **Stable tag:** 1.0.1  
 **Requires at least:** 4.4  
 
+This plugin has been closed as of April 2, 2020 and is not available for download on WordPress plugins repository. This closure is permanent.
+
 This plugin essentially helps you make your existing website compatible with Page Builders when you switch to Astra theme.
 
 ## Description ##
